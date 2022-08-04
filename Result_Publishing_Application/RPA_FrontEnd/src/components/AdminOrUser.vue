@@ -8,6 +8,7 @@
 
             <div class="footer d-flex">
                 <div class="admin-button">
+                    
                     <label for="admin-button">ADMIN LOGIN</label><br>
                     <button class="btn btn-light" @click="admin">Admin</button>
                 </div>
