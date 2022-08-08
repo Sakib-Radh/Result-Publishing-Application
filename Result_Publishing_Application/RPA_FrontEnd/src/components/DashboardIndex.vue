@@ -1,28 +1,21 @@
 <template>
-     <div class="container">
+    <div class="container">
         <div class="body">
-            <div v-if="isSubmitted" class="alert alert-success" role="alert">
-                Successfully Updated CGPA
-            </div>
-            <div v-if="isNotNumber" class="alert alert-danger" role="alert">
-                Please Enter Valid CGPA
-            </div>
-            <div class="header">
-                <h1></h1>
-            </div>
             <div class="student-info">
-                <h2>Hello {{studentInfo.name}}</h2>
-                <h2>Your Current CGPA is {{studentInfo.cgpa}}</h2>
+                <h2>
+                    Hello {{studentInfo.name}} <br>
+                    Your Current CGPA is <br> {{studentInfo.cgpa}}
+                </h2>
             </div>
-           
+
             <div class="footer">
-                 <button class="btn btn-primary" @click="logout">Logout</button>
+                <button class="btn btn-primary" @click="logout">Logout</button>
             </div>
         </div>
 
     </div>
 
-   
+
 </template>
 
 <script>
@@ -92,6 +85,11 @@ export default {
     margin: auto !important;
     text-align: center;
     padding: 100px;
+}
+.container{
+    border-radius: 50px;
+    background: whitesmoke;
+    margin-top: 50px;
 }
 .container{
     height: 600px;

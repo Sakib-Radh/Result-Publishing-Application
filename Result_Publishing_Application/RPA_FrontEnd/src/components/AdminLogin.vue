@@ -95,4 +95,7 @@ button.btn.btn-light:hover {
     background: blueviolet;
     color: white;
 }
+button.btn.btn-light {
+    width: 100%;
+}
 </style>

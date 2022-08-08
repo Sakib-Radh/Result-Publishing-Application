@@ -21,10 +21,16 @@
 
 
     <div class="row mb-4">
-      <button type="button" class="btn btn-light" @click="login">Sign in</button>
-      <div class="register">
-        <router-link :to="{name: 'RegisterIndex'}">If not Registerred</router-link>
+
+        <button type="button" class="btn btn-light login-button" @click="login">Sign in</button>
+        <button type="button" class="btn btn-light" @click="$router.push({name: 'RegisterIndex'})">Register</button>
+      
+      
+
+      <div class="forget-pass">
+        <router-link :to="{name: 'AdminOrUser'}">Forget Password?</router-link>
       </div>
+
       <div class="admin-or-user">
         <router-link :to="{name: 'AdminOrUser'}">Go Back</router-link>
       </div>
@@ -78,6 +84,14 @@ export default {
 </script>
 
 <style scoped>
+
+.body{
+    justify-content: center;
+    margin: auto !important;
+    text-align: center;
+    padding: 100px;
+}
+
 .container{
     margin-top: 60px;
 }
@@ -109,5 +123,13 @@ button.btn.btn-light:hover {
 
 .header {
     margin-bottom: 50px;
+}
+
+.forget-pass {
+    padding: 20px;
+}
+
+.login-button{
+  margin-bottom: 10px;
 }
 </style>

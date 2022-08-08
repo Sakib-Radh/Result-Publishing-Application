@@ -82,7 +82,7 @@ export default {
     padding: 100px;
 }
 .container{
-    height: 600px;
+    height: fit-content;
 }
 .footer{
     padding: 10px;

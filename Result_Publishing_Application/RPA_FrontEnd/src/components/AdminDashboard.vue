@@ -3,9 +3,11 @@
     <div class="container">
         <div class="table-container">
             <div class="form-outline mb-4">
-                <input type="search" class="form-control" id="datatable-search-input">
-                <label class="form-label" for="datatable-search-input">Search</label>
+                <div class="search-item">
+                    <input type="search" class="form-control" id="datatable-search-input" v-model="search">
+                </div>
             </div>
+
             <table class="table">
                 <thead>
                     <tr>
@@ -16,11 +18,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="row in allItem" :key="row">
+                    <tr v-for="row in filterItem" :key="row">
                         <td>{{ row.roll }}</td>
                         <td>{{ row.name }}</td>
                         <td>{{ row.cgpa }}</td>
-                        <td><button class="btn btn-primary" @click="details(row)">Details</button></td>
+                        <td><button class="btn btn-light" @click="details(row)">Details</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -28,7 +30,7 @@
 
         <footer class="text-center">
             <div class="footer-button logout">
-                <button class="btn btn-primary" @click="adminLogout">Logout</button>
+                <button class="btn btn-light" @click="adminLogout">Logout</button>
             </div>
         </footer>
 
@@ -52,6 +54,8 @@ export default {
             allItem: [],
             selectedStudent: {},
             isUpdateModalVisible: false,
+            search: '',
+            filterItem: []
         };
     },
     components: {
@@ -59,7 +63,13 @@ export default {
     },
 
     computed: {
-        ...mapGetters["user"]
+        ...mapGetters["user"],
+
+        filterItem() {
+            return this.allItem.filter(item => {
+                return item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+            })
+    }
     },
 
     created() {
@@ -104,7 +114,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 
     .container{
@@ -141,6 +151,22 @@ export default {
     }   
     .footer-button.logout {
         margin-bottom: 10px;
+    }
+    .search-item{
+        display: flex;
+        justify-content: center
+    }
+    input#datatable-search-input {
+    width: 75%;
+    }
+
+    button.btn.btn-light:hover{
+        background: #6c95dc;
+        color: white
+    }
+
+    thead, tbody, tfoot, tr, td, th{
+    border-color: red !important;
     }
 
 </style>
